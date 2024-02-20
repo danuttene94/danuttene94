@@ -1,0 +1,60 @@
+#This script is intended to replace next actions: open switch IP in Chrome, click proceed button,
+# reload switch IP, log in, find Edit folder and Chassis option, click on them, search if mentioned software
+#version is present. Last step is to take a screenshot and save it.
+
+import pyautogui
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+cService = webdriver.ChromeService(
+    executable_path=r'C:\Users\DITene\PycharmProjects\PrimulmeuproiectinPython\chromedriver.exe')
+
+driver = webdriver.Chrome(service=cService)
+print(driver.service.is_connectable())  # print True
+actions = ActionChains(driver)
+action = ActionChains(driver)
+driver.implicitly_wait(5)
+
+def test_EDM_login():
+    driver.get('https://10.3.40.90')
+    driver.find_element(By.XPATH, '//button[@class="secondary-button small-link"]').click()
+    import time
+    time.sleep(3)
+    search = driver.find_element(By.ID, 'proceed-link').click()
+    actions = ActionChains(driver)
+    import time
+    time.sleep(3)
+    driver.get('https://10.3.40.90')
+    import time
+    time.sleep(2)
+    actions.send_keys('danut', Keys.TAB)
+    actions.perform()
+    import time
+    time.sleep(2)
+    actions.send_keys('Rota2016', Keys.ENTER)
+    actions.perform()
+    import time
+    time.sleep(12)
+    search = driver.find_element(By.ID, 'trigger-1023-inputEl').click()
+    actions = ActionChains(driver)
+    actions.perform()
+    import time
+    time.sleep(2)
+    actions.send_keys('chassis')
+    actions.perform()
+    import time
+    time.sleep(2)
+    search = driver.find_element(By.ID, 'treeview-1014-record-editChassis').click()
+    actions = ActionChains(driver)
+    actions.perform()
+    import time
+    time.sleep(9)
+    pyautogui.hotkey('ctrl', 'f')
+    pyautogui.typewrite('9.0.2.0_B015')
+    pyautogui.hotkey('Return')
+    pyautogui.screenshot('screenshot.png')
+    import time
+    time.sleep(12)
+#    driver.quit()
