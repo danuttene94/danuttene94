@@ -1,4 +1,4 @@
-#This script is intended to replace next actions: open switch IP in Chrome, click proceed button, reload switch IP, log in, find Chassis, search if mentioned 
+# This script is intended to replace next actions: open switch IP in Chrome, click proceed button, reload switch IP, log in, find Chassis, search if mentioned 
 # software version is present. Last step is to take a screenshot and save it.
 
 import pyautogui
@@ -55,5 +55,5 @@ def test_EDM_login():
     pyautogui.hotkey('Return')
     pyautogui.screenshot('screenshot.png')
     import time
-    time.sleep(12)
+    time.sleep(13)
     driver.quit()
