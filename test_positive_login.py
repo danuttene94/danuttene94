@@ -1,3 +1,4 @@
+#The purpose of this script is written in README.md file
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
