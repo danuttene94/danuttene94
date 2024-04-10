@@ -5,20 +5,19 @@ from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 import pyautogui
 import pyscreeze
 import time
 
-cService = webdriver.ChromeService(
-    executable_path=r'C:\Users\DITene\PycharmProjects\pythonProject\chromedriver.exe')
-
-driver = webdriver.Chrome(service=cService)
-print(driver.service.is_connectable())  # print True
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 driver.maximize_window()
 
 actions = ActionChains(driver)
+print(driver.service.is_connectable())  # print True
 action = ActionChains(driver)
-driver.implicitly_wait(15)
+driver.implicitly_wait(5)
 
 
 def test_edm_login_negative():
