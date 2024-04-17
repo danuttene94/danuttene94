@@ -5,3 +5,6 @@
 3. The purpose of "Login_and_checks_test.py" is to do a log in on a test page and a few checks that the link is correct and given text is found on the page.
 
 4. The purpose of "Temperature_test.py" is to do a Log in on the switch web management interface, go to "System Temperature" menu and do a screenshot of the page. This option was used because the box that contained the temperature number is not selectable so i couldn't find the element and do an assert on the text.
+
+5. Files "test_login_page_positive.py", " test_login_page_negative.py", "test_exceptions.py", "conftest.py", "pytest.ini" were developed during the "Selenium WebDriver: Selenium Automation Testing with Python", by Dmitry Shyshkin on Udemy.
+   Here i learned more advanced topics on Selenium/Python and how to create a framework, such as: Pytest, marks, fixtures, parametrization, implicit/explicit waits,     how to run multiple tests at once or using multiple browsers at once and also test some of the most common exceptions.
